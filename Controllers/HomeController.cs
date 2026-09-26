@@ -18,6 +18,58 @@ namespace ShreeKrupaEngg.Controllers
             return View();
         }
 
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Services()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult Enquiry()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Enquiry(EnquiryModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                // TODO: Save to database or send email
+                TempData["Success"] = "Your enquiry has been submitted successfully. We will contact you soon!";
+                return RedirectToAction("Enquiry");
+            }
+            return View(model);
+        }
+
+        public IActionResult Gallery()
+        {
+            return View();
+        }
+
+        public IActionResult Locations()
+        {
+            return View();
+        }
+
+        public IActionResult Pipeline()
+        {
+            return View();
+        }
+
+        public IActionResult Infrastructure()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

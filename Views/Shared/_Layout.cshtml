@@ -3,44 +3,107 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ShreeKrupaEngg</title>
+    <title>@ViewData["Title"] - Shree Krupa Engg | MNGL Gas Services</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ShreeKrupaEngg.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <!-- Premium Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-gradient sticky-top" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ShreeKrupaEngg</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand fw-bold" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-gas-pump"></i> Shree Krupa Engg
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link active" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Services">Services</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Gallery
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="galleryDropdown">
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Gallery">Photo Gallery</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Pipeline">ONGC Pipeline</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Infrastructure">Infrastructure</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Locations">Our Locations</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-warning btn-sm text-dark fw-bold ms-2" asp-area="" asp-controller="Home" asp-action="Enquiry">
+                                <i class="fas fa-paper-plane"></i> Get Quote
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
+    <main role="main">
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show m-3" role="alert">
+                <i class="fas fa-check-circle"></i> @TempData["Success"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+        @RenderBody()
+    </main>
+
+    <!-- Premium Footer -->
+    <footer class="bg-dark text-white pt-5 pb-3 mt-5">
         <div class="container">
-            &copy; 2026 - ShreeKrupaEngg - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-gas-pump text-warning"></i> Shree Krupa Engg</h5>
+                    <p>Premium MNGL Gas Services for Hotels, Restaurants & Commercial Establishments</p>
+                    <div>
+                        <a href="#" class="text-warning me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-warning me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-warning me-3"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-warning"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="@Url.Action("Index", "Home")" class="text-decoration-none text-white-50">Home</a></li>
+                        <li><a href="@Url.Action("About", "Home")" class="text-decoration-none text-white-50">About Us</a></li>
+                        <li><a href="@Url.Action("Services", "Home")" class="text-decoration-none text-white-50">Services</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")" class="text-decoration-none text-white-50">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6 class="fw-bold mb-3">Contact Info</h6>
+                    <p class="mb-2"><i class="fas fa-phone text-warning"></i> +91 XXXXX XXXXX</p>
+                    <p class="mb-2"><i class="fas fa-envelope text-warning"></i> info@shreekrupaengg.com</p>
+                    <p><i class="fas fa-map-marker-alt text-warning"></i> Your City, India</p>
+                </div>
+            </div>
+            <hr class="bg-secondary">
+            <div class="text-center text-white-50">
+                <p>&copy; 2024 - Shree Krupa Engg. All Rights Reserved. | <a asp-area="" asp-controller="Home" asp-action="Privacy" class="text-decoration-none text-warning">Privacy Policy</a></p>
+            </div>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

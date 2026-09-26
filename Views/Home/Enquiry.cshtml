@@ -1,0 +1,197 @@
+@model EnquiryModel
+@{
+    ViewData["Title"] = "Enquiry Form - Get Your Quote";
+}
+
+<div class="container py-5">
+    <!-- Page Header -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold">Enquiry Form</h1>
+        <p class="lead text-muted">Submit your details to get a personalized quote for our MNGL gas services</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-lg">
+                <div class="card-header bg-primary text-white p-4">
+                    <h4 class="fw-bold mb-0"><i class="fas fa-clipboard-list"></i> Tell Us About Your Requirements</h4>
+                </div>
+                <div class="card-body p-5">
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <i class="fas fa-exclamation-circle"></i> @ViewBag.Error
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+
+                    <form method="post" asp-action="Enquiry" novalidate>
+                        <!-- Full Name -->
+                        <div class="mb-4">
+                            <label for="fullName" class="form-label fw-bold">Full Name <span class="text-danger">*</span></label>
+                            <input type="text" 
+                                   class="form-control form-control-lg @(ViewData.ModelState.ContainsKey("FullName") ? "is-invalid" : "")" 
+                                   id="fullName" 
+                                   asp-for="FullName"
+                                   placeholder="Enter your full name"
+                                   required>
+                            <span asp-validation-for="FullName" class="invalid-feedback"></span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-4">
+                            <label for="email" class="form-label fw-bold">Email Address <span class="text-danger">*</span></label>
+                            <input type="email" 
+                                   class="form-control form-control-lg @(ViewData.ModelState.ContainsKey("Email") ? "is-invalid" : "")" 
+                                   id="email" 
+                                   asp-for="Email"
+                                   placeholder="your.email@example.com"
+                                   required>
+                            <span asp-validation-for="Email" class="invalid-feedback"></span>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="mb-4">
+                            <label for="phone" class="form-label fw-bold">Phone Number <span class="text-danger">*</span></label>
+                            <input type="tel" 
+                                   class="form-control form-control-lg @(ViewData.ModelState.ContainsKey("Phone") ? "is-invalid" : "")" 
+                                   id="phone" 
+                                   asp-for="Phone"
+                                   placeholder="+91 XXXXX XXXXX"
+                                   required>
+                            <span asp-validation-for="Phone" class="invalid-feedback"></span>
+                        </div>
+
+                        <!-- Company Name -->
+                        <div class="mb-4">
+                            <label for="companyName" class="form-label fw-bold">Company/Hotel/Restaurant Name <span class="text-danger">*</span></label>
+                            <input type="text" 
+                                   class="form-control form-control-lg @(ViewData.ModelState.ContainsKey("CompanyName") ? "is-invalid" : "")" 
+                                   id="companyName" 
+                                   asp-for="CompanyName"
+                                   placeholder="Your business name"
+                                   required>
+                            <span asp-validation-for="CompanyName" class="invalid-feedback"></span>
+                        </div>
+
+                        <!-- Service Type -->
+                        <div class="mb-4">
+                            <label for="serviceType" class="form-label fw-bold">Service Type Required <span class="text-danger">*</span></label>
+                            <select class="form-select form-select-lg @(ViewData.ModelState.ContainsKey("ServiceType") ? "is-invalid" : "")" 
+                                    id="serviceType" 
+                                    asp-for="ServiceType"
+                                    required>
+                                <option value="">-- Select a service --</option>
+                                <option value="5-Star-Hotel">5-Star Hotel Gas Supply</option>
+                                <option value="3-Star-Hotel">3-Star Hotel Gas Supply</option>
+                                <option value="Restaurant">Restaurant & Catering</option>
+                                <option value="Commercial-Kitchen">Commercial Kitchen</option>
+                                <option value="Industrial">Industrial Application</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <span asp-validation-for="ServiceType" class="invalid-feedback"></span>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="mb-4">
+                            <label for="message" class="form-label fw-bold">Message / Additional Details</label>
+                            <textarea class="form-control" 
+                                      id="message" 
+                                      asp-for="Message"
+                                      rows="5" 
+                                      placeholder="Tell us more about your requirements, current usage, or any specific concerns..."></textarea>
+                            <small class="form-text text-muted">Include details like current setup, monthly usage, or any special requirements</small>
+                        </div>
+
+                        <!-- Terms Checkbox -->
+                        <div class="mb-4 form-check">
+                            <input class="form-check-input" type="checkbox" id="terms" required>
+                            <label class="form-check-label" for="terms">
+                                I agree to be contacted regarding my enquiry and accept the <a href="@Url.Action("Privacy", "Home")" class="text-primary">privacy policy</a>
+                            </label>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg fw-bold">
+                                <i class="fas fa-paper-plane"></i> Submit Enquiry
+                            </button>
+                            <a href="@Url.Action("Index", "Home")" class="btn btn-outline-secondary btn-lg">
+                                Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Info Box -->
+                <div class="card-footer bg-light p-4">
+                    <div class="alert alert-info mb-0">
+                        <i class="fas fa-info-circle"></i> 
+                        <strong>Quick Response:</strong> Our team will review your enquiry and contact you within 24 hours with a customized quote and solution proposal.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Us Column -->
+            <div class="row mt-5">
+                <div class="col-md-6 mb-4">
+                    <div class="benefit-card text-center p-4">
+                        <i class="fas fa-headset fa-3x text-primary mb-3"></i>
+                        <h5 class="fw-bold">Dedicated Support</h5>
+                        <p class="text-muted mb-0">24/7 customer support team ready to assist</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="benefit-card text-center p-4">
+                        <i class="fas fa-check-circle fa-3x text-primary mb-3"></i>
+                        <h5 class="fw-bold">No Obligation</h5>
+                        <p class="text-muted mb-0">Free consultation with no hidden charges</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="benefit-card text-center p-4">
+                        <i class="fas fa-bolt fa-3x text-primary mb-3"></i>
+                        <h5 class="fw-bold">Fast Response</h5>
+                        <p class="text-muted mb-0">Quote within 24 hours of submission</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="benefit-card text-center p-4">
+                        <i class="fas fa-award fa-3x text-primary mb-3"></i>
+                        <h5 class="fw-bold">Certified Service</h5>
+                        <p class="text-muted mb-0">All services comply with safety standards</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .benefit-card {
+        background: #f8f9fa;
+        border-radius: 10px;
+        border-left: 4px solid #0d6efd;
+        transition: all 0.3s ease;
+    }
+
+    .benefit-card:hover {
+        background: white;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .form-control-lg:focus,
+    .form-select-lg:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+
+    .invalid-feedback {
+        display: block;
+    }
+</style>
+
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

@@ -1,0 +1,165 @@
+@{
+    ViewData["Title"] = "Contact Us - Shree Krupa Engg";
+}
+
+<div class="container py-5">
+    <!-- Page Header -->
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold">Contact Us</h1>
+        <p class="lead text-muted">Get in touch with our team for any inquiries or assistance</p>
+    </div>
+
+    <div class="row">
+        <!-- Contact Info -->
+        <div class="col-lg-6 mb-5">
+            <h3 class="fw-bold mb-4">Our Contact Information</h3>
+
+            <div class="contact-info-item mb-4">
+                <div class="d-flex mb-3">
+                    <div class="contact-icon me-3">
+                        <i class="fas fa-map-marker-alt fa-2x text-primary"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold">Office Location</h5>
+                        <p class="text-muted mb-0">
+                            Shree Krupa Engg<br>
+                            Address Line 1<br>
+                            Your City, State - PIN<br>
+                            India
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-info-item mb-4">
+                <div class="d-flex mb-3">
+                    <div class="contact-icon me-3">
+                        <i class="fas fa-phone fa-2x text-primary"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold">Phone Numbers</h5>
+                        <p class="text-muted mb-0">
+                            Main: +91 XXXXX XXXXX<br>
+                            Emergency: +91 XXXXX XXXXX<br>
+                            Support: +91 XXXXX XXXXX
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-info-item mb-4">
+                <div class="d-flex mb-3">
+                    <div class="contact-icon me-3">
+                        <i class="fas fa-envelope fa-2x text-primary"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold">Email Address</h5>
+                        <p class="text-muted mb-0">
+                            info@shreekrupaengg.com<br>
+                            support@shreekrupaengg.com<br>
+                            sales@shreekrupaengg.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-info-item mb-4">
+                <div class="d-flex mb-3">
+                    <div class="contact-icon me-3">
+                        <i class="fas fa-clock fa-2x text-primary"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold">Business Hours</h5>
+                        <p class="text-muted mb-0">
+                            Monday - Friday: 9:00 AM - 6:00 PM<br>
+                            Saturday: 10:00 AM - 4:00 PM<br>
+                            Sunday & Holidays: 24/7 Emergency Support
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="mt-5">
+                <h5 class="fw-bold mb-3">Follow Us</h5>
+                <div>
+                    <a href="#" class="btn btn-outline-primary btn-sm me-2">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                    <a href="#" class="btn btn-outline-info btn-sm me-2">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a>
+                    <a href="#" class="btn btn-outline-danger btn-sm me-2">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="#" class="btn btn-outline-danger btn-sm">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Contact Form -->
+        <div class="col-lg-6 mb-5">
+            <div class="card border-0 shadow p-5">
+                <h3 class="fw-bold mb-4">Send us a Message</h3>
+                <form>
+                    <div class="mb-3">
+                        <label for="contactName" class="form-label fw-bold">Full Name</label>
+                        <input type="text" class="form-control" id="contactName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactEmail" class="form-label fw-bold">Email Address</label>
+                        <input type="email" class="form-control" id="contactEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactPhone" class="form-label fw-bold">Phone Number</label>
+                        <input type="tel" class="form-control" id="contactPhone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactSubject" class="form-label fw-bold">Subject</label>
+                        <input type="text" class="form-control" id="contactSubject" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactMessage" class="form-label fw-bold">Message</label>
+                        <textarea class="form-control" id="contactMessage" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 fw-bold">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="row mt-5">
+        <div class="col-lg-12">
+            <h3 class="fw-bold mb-4">Find Us on Map</h3>
+            <div style="width: 100%; height: 400px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white;">
+                <div class="text-center">
+                    <i class="fas fa-map-marked-alt fa-5x mb-3"></i>
+                    <p>Google Map Integration Coming Soon</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        background: rgba(13, 110, 253, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contact-info-item {
+        padding: 20px;
+        background: #f8f9fa;
+        border-radius: 10px;
+    }
+</style>
